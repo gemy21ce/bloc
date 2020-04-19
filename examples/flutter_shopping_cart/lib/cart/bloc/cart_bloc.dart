@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_shopping_cart/catalog/catalog.dart';
@@ -36,6 +37,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     final currentState = state;
     if (currentState is CartLoaded) {
       try {
+        sleep(Duration(seconds:2));
         yield CartLoaded(
           items: List.from(currentState.items)..add(event.item),
         );
